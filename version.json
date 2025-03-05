@@ -1,0 +1,25 @@
+{
+    "version": [
+        1,
+        0,
+        0
+    ],
+    "modules": {
+        "personnel": [
+            1,
+            0
+        ],
+        "stock": [
+            1,
+            0
+        ],
+        "Ventes": [
+            1,
+            0
+        ],
+        "Compta": [
+            1,
+            0
+        ]
+    }
+}
