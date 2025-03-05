@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VenteFlex{% endblock %}</title>
+
+    <!-- Lien vers Bootstrap CSS depuis le dossier static -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Ajoute ton propre CSS si nécessaire -->
+
+    <!-- Lien vers Bootstrap JS depuis le dossier static -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
+</head>
+
+<body>
+    <header class="bg-primary text-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <h1>VenteFlex</h1>
+            <nav>
+                <ul class="list-unstyled d-flex">
+                    <li class="mx-3"><a href="{% url 'admin:index' %}" class="text-white">Admin</a></li>
+                    <li class="mx-3"><a href="{% url 'personnel:liste_employes' %}" class="text-white">Employés</a></li>
+                    <li class="mx-3"><a href="{% url 'personnel:liste_conges' %}" class="text-white">Congés</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        {% block content %}
+        <!-- Le contenu spécifique à chaque vue sera injecté ici -->
+        {% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 VenteFlex - Version 0.2</p>
+    </footer>
+</body>
+
+</html>

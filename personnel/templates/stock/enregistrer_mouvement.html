@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<!-- templates/stock/enregistrer_mouvement.html -->
+{% block content %}
+    <h1>Enregistrer un Mouvement de Stock pour "{{ produit.nom }}"</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="produit_id" value="{{ produit.id }}">
+
+        {{ form.as_p }}
+        <button type="submit">Enregistrer Mouvement</button>
+    </form>
+
+    <br>
+    <a href="{% url 'stock:lister_produits' %}">Retour à la liste des produits</a>
+{% endblock %}

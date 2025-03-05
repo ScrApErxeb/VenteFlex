@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Liste des Congés</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employé</th>
+            <th>Type de Congé</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Motif</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for conge in conges %}
+        <tr>
+            <td>{{ conge.utilisateur }}</td>
+            <td>{{ conge.type_conge }}</td>
+            <td>{{ conge.date_debut }}</td>
+            <td>{{ conge.date_fin }}</td>
+            <td>{{ conge.motif }}</td>
+            <td>
+                <a href="{% url 'personnel:modifier_conge' conge.pk %}">Modifier</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">Aucun congé enregistré.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

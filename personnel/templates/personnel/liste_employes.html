@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Liste des Employés</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Poste</th>
+            <th>Département</th>
+            <th>Téléphone</th>
+            <th>Date d'embauche</th>
+            <th>Actions</th>  <!-- Nouvelle colonne -->
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for employe in employes %}
+        <tr>
+            <td>{{ employe.nom }}</td>
+            <td>{{ employe.prenom }}</td>
+            <td>{{ employe.titre_poste.nom }}</td>
+            <td>{{ employe.departement.nom }}</td>
+            <td>{{ employe.telephone }}</td>
+            <td>{{ employe.date_embauche }}</td>
+            <td>
+                <a href="{% url 'personnel:modifier_employe' employe.pk %}">Modifier</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">Aucun employé trouvé.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'personnel:ajouter_employe' %}">Ajouter un employé</a>
+
+{% endblock %}
